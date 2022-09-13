@@ -10,22 +10,18 @@ const API_KEY = `ea37c57f8f4e06eabc23bda955d95137`;
 
 //Get Data
 const getTemperature = () => {
-    if (GetCity.value === '') {
-        alert('Write A City Name')
-    }
-    else if (!temp == 0) {
-        alert('Write A Valid City Name')
-        GetCity.value = '';
-    }
-    else {
-        const city = GetCity.value;
-        GetCity.value = '';
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => displayTemp(data))
-    }
+
+
+    const city = GetCity.value;
+    GetCity.value = '';
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayTemp(data))
+
+        .catch((res) => alert("Please Type Right City Name"));
 
 }
 
